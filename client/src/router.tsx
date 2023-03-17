@@ -63,6 +63,14 @@ const routerData: RouterElement[] = [
     element: <PageC/>,
     withAuth: true
   },
+  {
+    id: 5,
+    path: '/admin',
+    label: '어드민 페이지',
+    element: <AdminPage/>,
+    withAuth: true,
+    isAdminPage: true
+  }
   // TODO 4-1: Admin페이지를 router에 추가
 ]
 
@@ -72,9 +80,15 @@ export const routers: RemixRouter = createBrowserRouter(
   routerData.map((router) => {
     if (router.withAuth) {
       return {
-        path: router.path,
-        element: <GeneralLayout>{ router.element }</GeneralLayout>
-      }
+				path: router.path,
+				element: (
+					<GeneralLayout
+						isAdminPage={"isAdminPage" in router && router.isAdminPage}
+					>
+						{router.element}
+					</GeneralLayout>
+				),
+			};
     } else {
       return {
         path: router.path,
@@ -89,11 +103,12 @@ export const SidebarContent: SidebarElement[] = routerData.reduce((prev, router)
   if (!router.withAuth) return prev
 
   return [
-    ...prev,
-    {
-      id: router.id,
-      path: router.path,
-      label: router.label,
-    }
-  ]
+		...prev,
+		{
+			id: router.id,
+			path: router.path,
+			label: router.label,
+			isAdminOnly: "isAdminPage" in router && router.isAdminPage,
+		},
+	];
 }, [] as SidebarElement[])
