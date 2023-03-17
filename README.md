@@ -5,6 +5,10 @@
 ## CORS
 로컬에서 CORS 요청을 허용할 수 있는 브라우저 페이지를 연 뒤, 해당 페이지에서 클라이언트를 실행하여 실습을 진행해 주세요.
 
+실행창
+"C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security --disable-gpu --user-data-dir="C:\chrome”
+또는 크롬바로가기를 만든 후 대상 뒤에 --disable-web-security --user-data-dir="C:\chrome” 붙이기
+
 ## 의존성 설치
 실습 4도 실습 3과 같이 서버 실행이 필요합니다.
 다음 명령어를 이용해 필요한 의존성들을 설치합니다.
