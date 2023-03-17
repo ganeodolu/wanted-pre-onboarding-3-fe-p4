@@ -9,6 +9,8 @@
 "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" --disable-web-security --disable-gpu --user-data-dir="C:\chrome”
 또는 크롬바로가기를 만든 후 대상 뒤에 --disable-web-security --user-data-dir="C:\chrome” 붙이기
 
+일반 크롬창에서하면 403 에러 발생함
+
 ## 의존성 설치
 실습 4도 실습 3과 같이 서버 실행이 필요합니다.
 다음 명령어를 이용해 필요한 의존성들을 설치합니다.
